@@ -12,7 +12,7 @@
 
 
 
-const info = [
+const images = [
     {
         image: 'img/01.webp',
         title: 'Marvel\'s Spiderman Miles Morale',
@@ -40,13 +40,7 @@ const info = [
     }
 ];
 
-const images = [
-    'img/01.webp',
-    'img/02.webp',
-    'img/03.webp',
-    'img/04.webp',
-    'img/05.webp',
-]
+
 
 
 const slidesContainerEl = document.querySelector(".items");
@@ -55,23 +49,23 @@ const buttonPrev = document.querySelector(".prev");
 let activeImage = 0;
 
 
-for(let i = 0; i < images.length ; i++){
+// for(let i = 0; i < images.length ; i++){
 
-    const currentImage = images[i]
-    let slideClasses = "item";
-    if(i == activeImage) {
-        slideClasses += " active";
-    }
+//     const currentImage = images[i]
+//     let slideClasses = "item";
+//     if(i == activeImage) {
+//         slideClasses += " active";
+//     }
     
-    const slide = `
-    <div class="${slideClasses}">
-        <img src="${currentImage}" alt="">
-    </div>`;
+//     const slide = `
+//     <div class="${slideClasses}">
+//         <img src="${currentImage}" alt="">
+//     </div>`;
 
-    slidesContainerEl.innerHTML += slide;
+//     slidesContainerEl.innerHTML += slide;
     
     
-}
+// }
 
 
 buttonPrev.addEventListener(
@@ -116,6 +110,7 @@ buttonNext.addEventListener(
             activeImage = 0;
 
         }
+        console.log(activeImage);
 
         slides[activeImage].classList.add("active");
 
