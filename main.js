@@ -12,7 +12,7 @@
 
 
 
-const images = [
+const info = [
     {
         image: 'img/01.webp',
         title: 'Marvel\'s Spiderman Miles Morale',
@@ -39,3 +39,89 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+
+const images = [
+    'img/01.webp',
+    'img/02.webp',
+    'img/03.webp',
+    'img/04.webp',
+    'img/05.webp',
+]
+
+
+const slidesContainerEl = document.querySelector(".items");
+const buttonNext = document.querySelector(".next");
+const buttonPrev = document.querySelector(".prev");
+let activeImage = 0;
+
+
+for(let i = 0; i < images.length ; i++){
+
+    const currentImage = images[i]
+    let slideClasses = "item";
+    if(i == activeImage) {
+        slideClasses += " active";
+    }
+    
+    const slide = `
+    <div class="${slideClasses}">
+        <img src="${currentImage}" alt="">
+    </div>`;
+
+    slidesContainerEl.innerHTML += slide;
+    
+    
+}
+
+
+buttonPrev.addEventListener(
+	"click",
+	function () {
+		
+		const slides = document.querySelectorAll(".item");
+		
+
+		
+		slides[activeImage].classList.remove("active");
+
+		
+		activeImage--;
+
+		
+		if (activeImage < 0) {
+			activeImage = slides.length - 1;
+		}
+		console.log(activeImage);
+
+		
+		slides[activeImage].classList.add("active");
+	}
+)
+
+
+
+
+
+buttonNext.addEventListener(
+    "click",
+    function(){
+
+        const slides = document.querySelectorAll(".item")
+
+        slides[activeImage].classList.remove("active");
+
+        activeImage++
+
+        if(activeImage >= slides.length) {
+            activeImage = 0;
+
+        }
+
+        slides[activeImage].classList.add("active");
+
+        
+
+
+    }
+)
+

@@ -7,6 +7,11 @@
 }
 
 
+.item{
+    display: none;
+    height: 70vh;
+    overflow: hidden;
+}
 
 .item img {
     width: 100%;
@@ -14,28 +19,38 @@
     object-fit: cover;
 }
 
-.item{
-    display: none;
-    height: 70vh;
-    overflow: hidden;
-}
 
 .item.active{
     display: block;
 }
 
-.prev{
+.prev,
+.next {
     position: absolute;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: rgba(240, 240, 240, 0.5);
+    color: #444;
+    border-radius: 50%;
     top: 50%;
-    color: black;
-    width: 100%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    padding: 0 4px;
 }
 
-.next{
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    color: black;
-    width: 100%;
+.prev:hover, .next:hover {
+    background-color: rgba(240, 240, 240, 1);
 }
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
 
